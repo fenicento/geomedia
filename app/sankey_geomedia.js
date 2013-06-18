@@ -2,12 +2,12 @@ function sankey_geomedia(){
 
 var margin = {top: 1, right: 1, bottom: 6, left: 1};
     window.width = 1260 - margin.left - margin.right;
-    window.height = 6000 - margin.top - margin.bottom;
+    window.height = 4000 - margin.top - margin.bottom;
 
 	console.log(width);
 
 var formatNumber = d3.format(",.0f"),
-    format = function(d) { return formatNumber(d) + " TWh"; },
+    format = function(d) { return formatNumber(d) + " References"; },
     color = d3.scale.category20();
 
 var svg = d3.select("#biforce").append("svg")
@@ -37,7 +37,7 @@ var path = sankey.link();
       .sort(function(a, b) { return b.dy - a.dy; });
 
   link.append("title")
-      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+      .text(function(d) { return d.source.name + " → " + d.target.label + "\n" + format(d.value); });
 
   var node = svg.append("g").selectAll(".node")
       .data(nod.nodes)
@@ -63,7 +63,7 @@ var path = sankey.link();
       .attr("dy", ".35em")
       .attr("text-anchor", "end")
       .attr("transform", null)
-      .text(function(d) { return d.name; })
+      .text(function(d) { if(d.total) return d.name; else return d.label })
     .filter(function(d) { return d.x < width / 2; })
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");

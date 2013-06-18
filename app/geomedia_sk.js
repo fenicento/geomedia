@@ -265,6 +265,7 @@ d3.tsv("data/geomedia.csv", function(data){
         	if(j<0) {
         		objour={};
         		objour.name=d.value.journal;
+        		objour.label=findLabel(d.value.journal);
         		jours.push(objour);
         	}
         	    
@@ -274,6 +275,7 @@ d3.tsv("data/geomedia.csv", function(data){
 	        	if(j<0) {
 	        		objour={};
 	        		objour.name=d.value.journal;
+	        		objour.label=findLabel(d.value.journal);
 	        		jours.push(objour);
 	        		}
           	
@@ -319,7 +321,26 @@ d3.tsv("data/geomedia.csv", function(data){
 	
 }  
 
-
+function findLabel(key) {
+	val=""
+      	
+      	switch(key)
+      	{
+      		case 'ft' :
+      			val="Financial Times"
+      			break;
+      		case 'mo' :
+      			val="Le Monde"
+      			break;
+      		case 'ti' :
+      			val="Times of India"
+      			break;
+      		case 'wp':
+      			val="Washington Post"
+      			break;
+      		}
+      		return val;
+}
 	
 	
 function lookup( name, arr ) {
