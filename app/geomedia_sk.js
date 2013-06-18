@@ -295,7 +295,8 @@ d3.tsv("data/geomedia.csv", function(data){
     nodes.sort(function(a, b) {
     return b.total - a.total;
 });  
-
+	
+	nodes=nodes.slice(0,10);
 	nodes.forEach(function(d,i,arr) {
 		jours.forEach(function(f,j,arr2) {
 			

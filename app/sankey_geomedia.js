@@ -2,7 +2,7 @@ function sankey_geomedia(){
 
 var margin = {top: 1, right: 1, bottom: 6, left: 1};
     window.width = 1260 - margin.left - margin.right;
-    window.height = 4000 - margin.top - margin.bottom;
+    window.height = 600 - margin.top - margin.bottom;
 
 	console.log(width);
 
