@@ -14,6 +14,7 @@ function calcK(data) {
   });
 }
 
+
 var w = ($("#timeline").width()),
     h = 500,
     padding = 2,
