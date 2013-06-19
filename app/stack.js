@@ -41,18 +41,21 @@ function stack() {
     .data(function(d) { return d; })
   	.enter().append("rect")
     .attr("y", function(d) { return y(d.x); })
-    .attr("x", function(d) { console.log(d.y0); return x(d.y0);})
+    .attr("x", function(d) { return x(d.y0);})
     .attr("height", 10)
     .attr("width", function(d) { return x(d.y); })
     .attr("opacity", 1.0)
     
     rect.filter(function(d){return(d.y0==0)})
-    .append("text")
-     .attr("x", function(d) {return d.x})
-     .attr("y", function(d) { return d.y})
-     .text(function(d) { return d.label})
-     .attr("dy", ".35em");
-    
+    .each(function() {
+    	console.log(this)
+     svg.append("text")	
+     .attr("x", '20px')
+     .attr("y", '20px')
+     .style("font-size",30)
+     .text(this.label)
+     .attr("dx", -4);
+    });
     // .on("click", function(d){
     	// layer.selectAll("rect")
     	// .attr("opacity",1.0);
